@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: btc_source # custom name to ref ource in jinja
+    description: "This source contains the raw data for BTC transactions."
+    database: btc #Exact name of the database where the source tables are located
+    schema: btc_schema #Exact name of the schema where the source tables are located
+    tables:
+      - name: btc_table #Exact name of the table in the source schema
+        description: "This table contains raw BTC transaction data."
