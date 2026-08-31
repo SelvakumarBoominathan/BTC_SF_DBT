@@ -8,7 +8,7 @@ sources:
     tables:
       - name: btc_table #Exact name of the table in the source schema
         description: "This table contains raw BTC transaction data."
-        
+
         config:
           freshness:
             warn_after: { count: 1, period: hour }
