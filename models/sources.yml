@@ -8,3 +8,10 @@ sources:
     tables:
       - name: btc_table #Exact name of the table in the source schema
         description: "This table contains raw BTC transaction data."
+        
+        config:
+          freshness:
+            warn_after: { count: 1, period: hour }
+            error_after: { count: 24, period: hour }
+          loaded_at_field: BLOCK_TIMESTAMP #Exact name of the column that indicates when the data was last loaded
+
