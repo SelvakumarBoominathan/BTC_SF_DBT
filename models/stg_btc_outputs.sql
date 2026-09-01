@@ -1,5 +1,8 @@
 
 -- 
+{{config(materialized='incremental', incremental_strategy='append')}}
+
+WITH flattened_outputs as (
 
 SELECT 
 tx.hash_key,
@@ -14,3 +17,19 @@ FROM {{ref('stg_btc')}} tx,
 LATERAL FLATTEN(input => outputs) f
 
 WHERE f.value:address IS NOT NULL
+
+{% if is_incremental() %}
+
+AND tx.block_timestamp >= (SELECT MAX(tx.block_timestamp) FROM {{ this}} )
+
+{% endif %}
+)
+
+SELECT 
+hash_key,
+block_number,
+block_timestamp,
+is_coinbase,
+output_address,
+output_value
+FROM flattened_outputs
