@@ -20,7 +20,7 @@ WHERE f.value:address IS NOT NULL
 
 {% if is_incremental() %}
 
-AND tx.block_timestamp >= (SELECT MAX(tx.block_timestamp) FROM {{ this}} )
+AND tx.block_timestamp >= (SELECT MAX(block_timestamp) FROM {{ this}} )
 
 {% endif %}
 )
