@@ -1,3 +1,5 @@
+{{ config(materialized='table') }}
+
 SELECT
 output_address,
 SUM(output_value) AS total_sent,
