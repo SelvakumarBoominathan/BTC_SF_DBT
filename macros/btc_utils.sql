@@ -7,5 +7,4 @@
     WHERE to_TIMESTAMP(replace(event_date, 'UTC','')) = current_timestamp()
   )
 
-
 {% endmacro %}
