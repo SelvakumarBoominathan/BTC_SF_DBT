@@ -8,6 +8,8 @@ models:
           - not_null
           - unique
 
+
+
 exposures:
   - name: btc_whale_alert_exposure
     label: BTC Whale Alert
