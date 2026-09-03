@@ -8,7 +8,25 @@ models:
           - not_null
           - unique
   - name: whale_alert
+    config:
+      contract:
+        enforced: true
     columns:
+      - name: TX_COUNT
+        data_type: integer
+      - name: TOTAL_SENT
+        data_type: float
+      - name: PRICE
+        data_type: float
       - name: output_address
+        data_type: string
         tests:
           - assert_valid_btc_address
+    # versions:
+
+    #   -v: 1
+
+    #   -v: 2
+    #     columns:
+    #       - include:all
+    #         exclude: [PRICE]

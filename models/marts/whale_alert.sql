@@ -18,6 +18,6 @@ SELECT
   w.output_address,
   w.total_sent,
   w.tx_count,
-  {{ convert_to_usd('w.total_sent') }} AS price
+  {{ convert_to_usd('w.total_sent') }} AS price,
 FROM WHALES w
 ORDER BY total_sent desc
