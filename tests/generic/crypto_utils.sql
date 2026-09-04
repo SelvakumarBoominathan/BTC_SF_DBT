@@ -1,5 +1,6 @@
 {% test assert_valid_btc_address(model, column_name)%}
 
+    -- Validate the address families supported by this Bitcoin monitoring model.
     SELECT 
     *
     FROM {{model}}
